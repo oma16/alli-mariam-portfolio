@@ -7,7 +7,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import Nav from "../components/nav.js";
 import Footer from "../components/footer.js";
 import TypingEffect from "../components/typing.js";
-import { Link } from "gatsby";
+
 
 const IndexPage = () => {
   const [theme, setTheme] = React.useState("dark");
@@ -19,20 +19,27 @@ const IndexPage = () => {
   const handleClick = () => {
     const newTheme = theme === "light" ? "dark" : "light";
     setTheme(newTheme);
-    console.log(newTheme);
-    localStorage.setItem("theme-ui-color-mode", newTheme);
+    // console.log(newTheme);
+    if (typeof window !== 'undefined') {
+      // Access localStorage here
+      localStorage.setItem('theme-ui-color-mode', newTheme);
+    }
+    
+    
   };
 
   React.useEffect(() => {
+    
     setTheme(localStorage.getItem("theme-ui-color-mode"));
-    if (typeof document !== "undefined") {
-      if (theme === "dark") {
-        document.body.className = "bg-gray-400 text-gray-100";
-      } else {
-        document.body.className = "bg-gray-300 text-gray-200";
-      }
-    }
+    
   }, []);
+  if (typeof document !== "undefined") {
+    if (theme === "dark") {
+      document.body.className = "bg-gray-400 text-gray-100";
+    } else {
+      document.body.className = "bg-gray-300 text-gray-200";
+    }
+  }
   
   return (
     <main className="w-full ">
@@ -113,7 +120,7 @@ const IndexPage = () => {
 
       <Social theme={theme} className="fixed hidden md:flex" />
       <section
-        className="w-full px-5 md:px-28  pt-36 pb-10 active h-screen"
+        className="w-full px-5 md:px-28  pt-36 pb-10 active "
         id="home"
       >
         <div className="w-full flex mx-auto flex-col-reverse md:justify-between md:items-center md:flex-row  ">
@@ -135,7 +142,7 @@ const IndexPage = () => {
                   theme !== "dark" ? "text-gray-200" : "text-gray-300"
                 }`}
               >
-                <a href="static/Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
+                <a href="Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
                 
                 <span className="w-full flex justify-center">
                   {theme === "dark" ? (

@@ -11,7 +11,7 @@ const ProjectPage = ({ id, theme }) => {
   const handleViewMore = () => {
     setViewMore(!viewMore);
   };
-  console.log(projectData);
+  // console.log(projectData);
   return (
     <section id={id} className="w-full flex flex-col px-5 md:px-28 py-10 ">
       <h1 className="mb-16 mt-20 text-4xl font-extrabold flex justify-center">

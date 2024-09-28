@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 const navmenu = [
   {
-    link: "#home",
+    link: "/",
     name: "Home",
   },
   {
@@ -21,26 +21,9 @@ const navmenu = [
 ];
 const Nav = () => {
   const [isActive, setIsActive] = React.useState(0);
-  const [isActives, setIsActives] = React.useState("#home");
+  const [isActives, setIsActives] = React.useState("/");
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = navmenu.map((nav) => document.getElementById(nav.link));
-      const activeSectionIndex = sections.findIndex((section) =>
-        section?.getBoundingClientRect().top >= 0 &&
-        section?.getBoundingClientRect().bottom <= window.innerHeight
-      );
-
-      if (activeSectionIndex !== -1 && activeSectionIndex !== isActive) {
-        setIsActive(activeSectionIndex);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup function to remove listener on unmount
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [isActive]);
+  
 
 
   const handleLinkClick = (index, id) => {
