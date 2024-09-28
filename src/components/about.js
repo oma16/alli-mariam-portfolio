@@ -13,7 +13,7 @@ const AboutPage = ({ id, theme }) => {
     const active = openId === index;
     setIsOpen(!isOpen);
     setOpenId(isActive);
-    console.log(isOpen, openId);
+    // console.log(isOpen, openId);
     if (active) {
       return setIsOpen(0);
     }

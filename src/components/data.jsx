@@ -65,7 +65,7 @@ export const projectData = [
     image: portfolio,
     site: "https://alli-mariam-portfolio.vercel.app/",
     github: "https://github.com/oma16/alli-mariam-portfolio",
-    stack: ["React", "Gatsby", "Tailwind CSS", "Framer motion"],
+    stack: ["React", "Gatsby", "Tailwind CSS","nodemailer"],
   },
   {
     name: "Rest Countries API",
@@ -223,7 +223,7 @@ export const projectData1 = [
     image: portfoliolite,
     site: "https://alli-mariam-portfolio.vercel.app/",
     github: "https://github.com/oma16/alli-mariam-portfolio",
-    stack: ["React", "Gatsby", "Tailwind CSS", "Framer motion", "nodemailer"],
+    stack: ["React", "Gatsby", "Tailwind CSS", "nodemailer"],
   },
   {
     name: "Rest Countries API",

@@ -138,11 +138,11 @@ const IndexPage = () => {
             </p>
             <div className="w-full mt-5">
               <button
-                className={`bg-green-600 hover:bg-purple-100 w-3/4 md:w-3/4 lg:w-3/5 py-2 rounded-lg border-0 text-xl font-bold  ${
+                className={`bg-green-600 hover:bg-purple-100 w-3/4 md:w-3/4 lg:w-3/5 xl:w-1/2 py-2 rounded-lg border-0 text-xl font-bold  ${
                   theme !== "dark" ? "text-gray-200" : "text-gray-300"
                 }`}
               >
-                <a href="Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
+                <a href="static/Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
                 
                 <span className="w-full flex justify-center">
                   {theme === "dark" ? (
