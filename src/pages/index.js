@@ -142,7 +142,7 @@ const IndexPage = () => {
                   theme !== "dark" ? "text-gray-200" : "text-gray-300"
                 }`}
               >
-                <a href="static/Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
+                <a href="static/Alli_Mariam_resume.pdf" download="Alli_Mariam_resume.pdf">
                 
                 <span className="w-full flex justify-center">
                   {theme === "dark" ? (
