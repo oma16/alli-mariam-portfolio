@@ -3,8 +3,12 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `AlliMariamPortfolio`,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `Alli Mariam Portfolio`,
+    siteUrl: `https://alli-mariam-portfolio.vercel.app/`,
   },
-  plugins: [],
+  plugins: [
+    "gatsby-plugin-image",
+    "gatsby-plugin-sharp",
+    'gatsby-plugin-postcss',
+  ],
 }

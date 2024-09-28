@@ -1,0 +1,17 @@
+.light {
+  background-color: hsl(236, 33%, 92%);
+  color: hsl(235, 19%, 35%);
+}
+
+.dark {
+  background-color: hsl(235, 21%, 11%);
+  color: hsl(234, 39%, 85%);
+}
+.hidden{
+    display: none;
+}
+.dflex{
+    display: flex;
+}
+
+

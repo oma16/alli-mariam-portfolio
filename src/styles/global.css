@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.project:hover .info{
+  display: block;
+  cursor: pointer;
+}
+.changeBg:hover {
+  animation: opacity 1.4s ease; 
+  background: #16a34a;
+}
+.changeBg:hover .bg_change {
+
+  box-shadow: 0 0 0 0 #046d33;
+  height: 100px;
+  transition: all .8s ease;
+}
+.arrow:hover .up_less{
+ display: none;
+}
+.arrow .up_more{
+ display: none;
+}
+.arrow:hover .up_more{
+ display: block;
+}
+
+.text_1, .text_2, .text_3, .text_4 {
+  overflow: hidden;
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+  border-right: 2px solid;
+  animation: typing 3s steps(30) forwards, blink-caret 0.75s step-end infinite;
+}
+
+.text_1 {
+  animation-delay: 0s;
+  width: 4em; /* Adjust based on length of text */
+}
+
+.text_2 {
+  animation-delay: 4s;
+  width: 15em; /* Adjust based on length of text */
+}
+
+.text_3 {
+  animation-delay: 8s;
+  width: 12em; /* Adjust based on length of text */
+}
+
+.text_4 {
+  animation-delay: 12s;
+  width: 10em; /* Adjust based on length of text */
+}
+
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: black; }
+}
+.text {
+  font-size: 2xl;
+  font-weight: bold;
+  border-right: 2px solid;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  animation: typing 3s steps(30, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  30% {
+    width: 100%;
+  }
+  60% {
+    width: 100%;
+  }
+  90%, 100% {
+    width: 0;
+  }
+}
+
+@keyframes blink-caret {
+  from, to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: black;
+  }
+}

@@ -1,176 +1,185 @@
-import * as React from "react"
-
-const pageStyles = {
-  color: "#232129",
-  padding: 96,
-  fontFamily: "-apple-system, Roboto, sans-serif, serif",
-}
-const headingStyles = {
-  marginTop: 0,
-  marginBottom: 64,
-  maxWidth: 320,
-}
-const headingAccentStyles = {
-  color: "#663399",
-}
-const paragraphStyles = {
-  marginBottom: 48,
-}
-const codeStyles = {
-  color: "#8A6534",
-  padding: 4,
-  backgroundColor: "#FFF4DB",
-  fontSize: "1.25rem",
-  borderRadius: 4,
-}
-const listStyles = {
-  marginBottom: 96,
-  paddingLeft: 0,
-}
-const listItemStyles = {
-  fontWeight: 300,
-  fontSize: 24,
-  maxWidth: 560,
-  marginBottom: 30,
-}
-
-const linkStyle = {
-  color: "#8954A8",
-  fontWeight: "bold",
-  fontSize: 16,
-  verticalAlign: "5%",
-}
-
-const docLinkStyle = {
-  ...linkStyle,
-  listStyleType: "none",
-  marginBottom: 24,
-}
-
-const descriptionStyle = {
-  color: "#232129",
-  fontSize: 14,
-  marginTop: 10,
-  marginBottom: 0,
-  lineHeight: 1.25,
-}
-
-const docLink = {
-  text: "Documentation",
-  url: "https://www.gatsbyjs.com/docs/",
-  color: "#8954A8",
-}
-
-const badgeStyle = {
-  color: "#fff",
-  backgroundColor: "#088413",
-  border: "1px solid #088413",
-  fontSize: 11,
-  fontWeight: "bold",
-  letterSpacing: 1,
-  borderRadius: 4,
-  padding: "4px 6px",
-  display: "inline-block",
-  position: "relative",
-  top: -2,
-  marginLeft: 10,
-  lineHeight: 1,
-}
-
-const links = [
-  {
-    text: "Tutorial",
-    url: "https://www.gatsbyjs.com/docs/tutorial/getting-started/",
-    description:
-      "A great place to get started if you're new to web development. Designed to guide you through setting up your first Gatsby site.",
-    color: "#E95800",
-  },
-  {
-    text: "How to Guides",
-    url: "https://www.gatsbyjs.com/docs/how-to/",
-    description:
-      "Practical step-by-step guides to help you achieve a specific goal. Most useful when you're trying to get something done.",
-    color: "#1099A8",
-  },
-  {
-    text: "Reference Guides",
-    url: "https://www.gatsbyjs.com/docs/reference/",
-    description:
-      "Nitty-gritty technical descriptions of how Gatsby works. Most useful when you need detailed information about Gatsby's APIs.",
-    color: "#BC027F",
-  },
-  {
-    text: "Conceptual Guides",
-    url: "https://www.gatsbyjs.com/docs/conceptual/",
-    description:
-      "Big-picture explanations of higher-level Gatsby concepts. Most useful for building understanding of a particular topic.",
-    color: "#0D96F2",
-  },
-  {
-    text: "Plugin Library",
-    url: "https://www.gatsbyjs.com/plugins",
-    description:
-      "Add functionality and customize your Gatsby site or app with thousands of plugins built by our amazing developer community.",
-    color: "#8EB814",
-  },
-  {
-    text: "Build and Host",
-    url: "https://www.gatsbyjs.com/cloud",
-    badge: true,
-    description:
-      "Now you’re ready to show the world! Give your Gatsby site superpowers: Build and host on Gatsby Cloud. Get started for free!",
-    color: "#663399",
-  },
-]
+import * as React from "react";
+import AboutPage from "../components/about.js";
+import ProjectPage from "../components/Project.jsx";
+import ContactPage from "../components/Contact.jsx";
+import Social from "../components/social";
+import { StaticImage } from "gatsby-plugin-image";
+import Nav from "../components/nav.js";
+import Footer from "../components/footer.js";
+import TypingEffect from "../components/typing.js";
+import { Link } from "gatsby";
 
 const IndexPage = () => {
+  const [theme, setTheme] = React.useState("dark");
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  const handleMenuClick = () => {
+    setIsOpen(!isOpen);
+  };
+  const handleClick = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    console.log(newTheme);
+    localStorage.setItem("theme-ui-color-mode", newTheme);
+  };
+
+  React.useEffect(() => {
+    setTheme(localStorage.getItem("theme-ui-color-mode"));
+  }, []);
+  theme === "dark"
+    ? (document.body.className = "bg-gray-400 text-gray-100")
+    : (document.body.className = "bg-gray-300 text-gray-200");
   return (
-    <main style={pageStyles}>
-      <h1 style={headingStyles}>
-        Congratulations
-        <br />
-        <span style={headingAccentStyles}>— you just made a Gatsby site! 🎉🎉🎉</span>
-      </h1>
-      <p style={paragraphStyles}>
-        Edit <code style={codeStyles}>src/pages/index.js</code> to see this page
-        update in real-time. 😎
-      </p>
-      <ul style={listStyles}>
-        <li style={docLinkStyle}>
-          <a
-            style={linkStyle}
-            href={`${docLink.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+    <main className="w-full ">
+      <div
+        className={`fixed shadow-2xl z-20 border-b py-5 flex w-full px-5 md:px-28 lg:px-28 justify-between  ${
+          theme === "dark"
+            ? "border-gray-100 bg-gray-400"
+            : "border-gray-200 bg-gray-300"
+        }`}
+      >
+        <div className={`md:hidden`}>
+          <div
+            onClick={handleMenuClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleMenuClick}
+            className={theme === "dark" ? "flex" : "hidden"}
           >
-            {docLink.text}
-          </a>
-        </li>
-        {links.map(link => (
-          <li key={link.url} style={{ ...listItemStyles, color: link.color }}>
-            <span>
-              <a
-                style={linkStyle}
-                href={`${link.url}?utm_source=starter&utm_medium=start-page&utm_campaign=minimal-starter`}
+            <StaticImage src="../images/menu.svg" alt="menu" />
+          </div>
+
+          <div
+            onClick={handleMenuClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleMenuClick}
+            className={theme === "dark" ? "hidden" : "flex"}
+          >
+            <StaticImage src="../images/menu-l.svg" alt="menu" />
+          </div>
+        </div>
+
+        <div
+          className={`flex fixed top-0 left-0 rounded-tr-lg rounded-br-lg flex-col md:flex-row md:static px-10 md:px-0 z-20 w-10/12 md:w-full md:justify-between md:items-center  ${
+            theme === "dark"
+              ? " md:bg-gray-400 bg-white text-gray-100"
+              : " md:bg-gray-300 bg-white text-gray-100 md:text-gray-200"
+          } ${isOpen ? "flex " : "hidden md:flex"}`}
+        >
+          <div
+            onClick={handleMenuClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleMenuClick}
+            className={`md:hidden self-end mt-8`}
+          >
+            <StaticImage src="../images/close.svg" alt="close" />
+          </div>
+          <Nav />
+          <hr className="md:hidden flex mt-5 text-gray-300" />
+          <Social
+            theme={theme}
+            className="relative my-16 inline-flex w-full items-center  justify-between  md:hidden"
+          />
+        </div>
+        <div>
+          <div
+            onClick={handleClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleClick}
+            className={theme === "dark" ? "flex" : "hidden"}
+          >
+            <StaticImage src="../images/icon-moon-m.svg" alt="moon" />
+          </div>
+
+          <div
+            onClick={handleClick}
+            role="button"
+            tabIndex={0}
+            onKeyDown={handleClick}
+            className={theme === "dark" ? "hidden" : "flex"}
+          >
+            <StaticImage src="../images/icon-sun.svg" alt="sun" />
+          </div>
+        </div>
+      </div>
+
+      <Social theme={theme} className="fixed hidden md:flex" />
+      <section
+        className="w-full px-5 md:px-28  pt-36 pb-10 active h-screen"
+        id="home"
+      >
+        <div className="w-full flex mx-auto flex-col-reverse md:justify-between md:items-center md:flex-row  ">
+          <div className=" md:w-1/2 xl:w-3/4 flex text-center md:text-justify flex-col justify-center md:justify-start">
+            <h1 className="text-2xl lg:text-4xl xl:text-5xl font-bold text-green-600">
+              Hello,I'm
+            </h1>
+
+            <TypingEffect theme={theme}/>
+            <p>
+              Software Engineer creating innovative and efficient solutions.
+              Proven expertise in full-stack development, with a keen eye for
+              detail and a commitment to delivering high-quality code.
+              Collaborative and staying up-to-date with emerging technologies.
+            </p>
+            <div className="w-full mt-5">
+              <button
+                className={`bg-green-600 hover:bg-purple-100 w-3/4 md:w-3/4 lg:w-3/5 py-2 rounded-lg border-0 text-xl font-bold  ${
+                  theme !== "dark" ? "text-gray-200" : "text-gray-300"
+                }`}
               >
-                {link.text}
-              </a>
-              {link.badge && (
-                <span style={badgeStyle} aria-label="New Badge">
-                  NEW!
+                <a href="static/Alli_Mariam_resume.pdf" download={`Alli_Mariam_resume.pdf`}>
+                
+                <span className="w-full flex justify-center">
+                  {theme === "dark" ? (
+                    <StaticImage
+                      src="./../images/downloadlite.svg"
+                      alt="download"
+                      className="animate-bounce w-10 h-10 mr-1"
+                    />
+                  ) : (
+                    <StaticImage
+                      src="./../images/download.svg"
+                      alt="download"
+                      className="animate-bounce w-10 h-10 mr-1"
+                    />
+                  )}
+                  <span className="self-center">Download CV</span>
                 </span>
-              )}
-              <p style={descriptionStyle}>{link.description}</p>
-            </span>
-          </li>
-        ))}
-      </ul>
-      <img
-        alt="Gatsby G Logo"
-        src="data:image/svg+xml,%3Csvg width='24' height='24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 2a10 10 0 110 20 10 10 0 010-20zm0 2c-3.73 0-6.86 2.55-7.75 6L14 19.75c3.45-.89 6-4.02 6-7.75h-5.25v1.5h3.45a6.37 6.37 0 01-3.89 4.44L6.06 9.69C7 7.31 9.3 5.63 12 5.63c2.13 0 4 1.04 5.18 2.65l1.23-1.06A7.959 7.959 0 0012 4zm-8 8a8 8 0 008 8c.04 0 .09 0-8-8z' fill='%23639'/%3E%3C/svg%3E"
-      />
+                </a>
+              </button>
+            </div>
+          </div>
+          <div className="md:w-1/2 flex justify-center md:justify-end">
+            <StaticImage
+              src="../images/Alli Mariam.jpg"
+              alt="profile-picture"
+              className="rounded-full w-36 h-36 md:w-60 md:h-60 lg:w-72 lg:h-72 xl:w-80 xl:h-80"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section id="about">
+        <AboutPage id="about" theme={theme} />
+      </section>
+      <section id="project">
+        <ProjectPage id="project" theme={theme} />
+      </section>
+      <section id="contact">
+        <ContactPage id="contact" theme={theme} />
+      </section>
+      <Footer />
     </main>
-  )
-}
+  );
+};
 
-export default IndexPage
+export default IndexPage;
 
-export const Head = () => <title>Home Page</title>
+export const Head = () => (
+  <head>
+    <title>Alli Mariam Portfolio</title>
+  </head>
+);
