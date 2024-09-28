@@ -25,10 +25,15 @@ const IndexPage = () => {
 
   React.useEffect(() => {
     setTheme(localStorage.getItem("theme-ui-color-mode"));
+    if (typeof document !== "undefined") {
+      if (theme === "dark") {
+        document.body.className = "bg-gray-400 text-gray-100";
+      } else {
+        document.body.className = "bg-gray-300 text-gray-200";
+      }
+    }
   }, []);
-  theme === "dark"
-    ? (document.body.className = "bg-gray-400 text-gray-100")
-    : (document.body.className = "bg-gray-300 text-gray-200");
+  
   return (
     <main className="w-full ">
       <div
