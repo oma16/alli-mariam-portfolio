@@ -370,7 +370,7 @@ export const aboutData = [
   {
     title: "Get to Know Me",
     details:
-      "  Mariam Alli is a Full-Stack Developer with 3 years of experience and DevOps Engineer. I specializes in JavaScript technologies and cloud infrastructure. I'm skilled in building and maintaining efficient, scalable web applications, while ensuring seamless deployment and automation processes. I'm passionate about modern technologies like serverless architectures and infrastructure as code.",
+      "  Mariam Alli is a Full-Stack Developer and DevOps Engineer. I specializes in JavaScript technologies and cloud infrastructure. I'm skilled in building and maintaining efficient, scalable web applications, while ensuring seamless deployment and automation processes. I'm passionate about modern technologies like serverless architectures and infrastructure as code.",
     image: [],
     service:[],
   },
