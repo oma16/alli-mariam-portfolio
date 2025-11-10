@@ -16,7 +16,7 @@ export const metadata = {
   openGraph: {
     title: 'Mariam Alli | Frontend Developer',
     description:
-      'Portfolio showcasing frontend, DevOps, and cloud-native projects.',
+      'Portfolio showcasing frontend Development projects.',
     url: 'https://alli-mariam-portfolio.vercel.app/',
     siteName: 'Mariam Alli Portfolio',
     images: [
