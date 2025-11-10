@@ -12,6 +12,8 @@ export default function Skills({ darkMode }) {
     'MUI',
     'Git',
     'Docker',
+    'Playwright',
+    'WordPress'
   ];
 
   return (

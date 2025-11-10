@@ -5,7 +5,7 @@ export default function Hero({ darkMode }) {
   return (
     <section
       id="hero"
-      className="min-h-screen relative flex items-center justify-center text-center dark:text-white px-6"
+      className="min-h-screen relative flex font-montserant items-center justify-center text-center dark:text-white px-6"
     >
       <motion.div
         initial={{ opacity: 0, y: 30 }}
