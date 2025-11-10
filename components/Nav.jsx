@@ -4,7 +4,7 @@ import { Moon, Sun, Menu, X } from 'lucide-react';
 
 const Nav = ({ toggleDark, darkMode, openMenu, closeMenu, menuOpen }) => (
   <nav
-    className={`fixed top-0 w-full backdrop-blur-md shadow-md z-50 ${darkMode ? 'bg-black/80 border border-b-gray-400' : 'bg-white/80'}`}
+    className={`fixed top-0 w-full backdrop-blur-md shadow-md z-50 ${darkMode ? 'bg-black/80 border-b-gray-400' : 'bg-white/80'}`}
   >
     <div className="max-w-5xl mx-auto px-4 py-3 flex justify-between items-center">
       <h1
