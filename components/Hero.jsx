@@ -40,8 +40,8 @@ export default function Hero({ darkMode }) {
             href="#contact"
             className={`px-6 py-3 rounded-xl ${
               darkMode
-                ? 'border-gray-600 text-white'
-                : 'border-gray-300 text-[#0e0e0e]'
+                ? 'border border-gray-600 text-white'
+                : 'border border-gray-300 text-[#0e0e0e]'
             }`}
           >
             Contact Me
