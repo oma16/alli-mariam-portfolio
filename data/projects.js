@@ -47,8 +47,8 @@ const projects = [
       'A country explorer app that displays detailed information using a public REST API.',
     details:
       'Fully implemented by me as part of a Frontend Mentor challenge. Features include real-time search, region filters, dark/light mode, and dynamic country detail pages. Focused on API integration, theme management, and accessibility.',
-    demo: 'https://alli-mariam-portfolio.vercel.app/',
-    github: 'https://github.com/oma16/alli-mariam-portfolio',
+    demo: 'https://rest-countries-pi-five.vercel.app/',
+    github: 'https://github.com/oma16/Rest-Countries',
     image: '/countryapidarkmode.png',
     image2: '/countryapilightmode.png',
   },
